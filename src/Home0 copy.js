@@ -1,12 +1,11 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
+import {NavLink} from 'react-router-dom'
 import { useRef, useState, useEffect, useCallback } from "react"
 import Geocoder from 'react-map-gl-geocoder'
-import ReactMapGL, {Source, Layer, NavigationControl, GeolocateControl, Marker, Popup, WebMercatorViewport, FlyToInterpolator, FullscreenControl } from "react-map-gl";
-import pharmaciesData from './data/pharmaciesFi.geojson'
+import ReactMapGL, { NavigationControl, GeolocateControl, Marker, Popup, WebMercatorViewport, FlyToInterpolator, FullscreenControl } from "react-map-gl";
+import * as pharmaciesData from './data/pharmaciesFi.json'
 import CardInfo from './CardInfo'
-import {clusterLayer, clusterCountLayer, unclusteredPointLayer} from './layers';
-import crossPin from './cross.png'
 
 const turf = require('@turf/turf');
 
@@ -37,7 +36,7 @@ const Home = () =>{
     longitude: 24.9384,
     width: "100%",
     height: "90vh",
-    zoom: 4
+    zoom: 16
   });
 
   const [pharmacies, setPharmacies] = useState([]);
@@ -48,6 +47,7 @@ const token = "pk.eyJ1IjoibGl6emV0aGdkIiwiYSI6ImNrZjN3aHhvNDA3NzUzMm9mcWFlbDlrYm
 const mapRef = useRef()
 const geocoderContainerRef = useRef()
 const geolocateContainerRef = useRef()
+
 
 const handleViewportChange = useCallback(
   (newViewport) => setViewport(newViewport),[]
@@ -122,7 +122,7 @@ const pharmaciesMarkers= pharmacies.map(pharmacy=>
             <img src='cross.png' alt='#' />
         </button>
     </Marker>))
-/* 
+
 const pharmacyPopup  = pharmacy 
   ? 
     (<Popup 
@@ -141,7 +141,7 @@ const pharmacyPopup  = pharmacy
         <p>{pharmacy.properties.website}</p>
       </div>
     </Popup>)
-  : null  */ 
+  : null  
 
   const pharmaciesList= pharmacies.map(pharmacy=> 
     ( 
@@ -172,82 +172,6 @@ const pharmacyPopup  = pharmacy
     )
   )
 
-
-const pharmacyPopup  = pharmacy 
-? 
-  (<Popup 
-    latitude={pharmacy.geometry.coordinates[1]}
-    longitude={pharmacy.geometry.coordinates[0]}
-    onClose={() => {
-        setPharmacy(null)
-    }}
-  >
-    <div>
-      <h2>{pharmacy.properties.name}</h2>
-      <p>{pharmacy.properties.opening_hours}</p>
-      <p>{pharmacy.properties.phone}</p>
-      <p>{pharmacy.properties['addr:street']} {pharmacy.properties['addr:housenumber']}</p>
-      <p>{pharmacy.properties['addr:postcode']} {pharmacy.properties['addr:city']}</p>
-      <p>{pharmacy.properties.website}</p>
-    </div>
-  </Popup>)
-: null 
-
-  const onClick = event => {
-    
-    const feature = event.features[0];
-
-    console.log(feature.layer.id)
-
-
-    if (feature.layer.id === 'clusters'){
-      
-    const clusterId = feature.properties.cluster_id;
-  
-    const mapboxSource = mapRef.current.getMap().getSource('pharmacies');
-  
-    mapboxSource.getClusterExpansionZoom(clusterId, (err, zoom) => {
-      if (err) {
-        return;
-      }
-      
-      setViewport({
-        ...viewport,
-        longitude: feature.geometry.coordinates[0],
-        latitude: feature.geometry.coordinates[1],
-        zoom,
-        transitionDuration: 500
-      });
-    });
- 
-  }else if (feature.layer.id === 'unclustered-point'){
-    
-    setViewport({
-      ...viewport,
-      longitude: feature.geometry.coordinates[0],
-      latitude: feature.geometry.coordinates[1],
-      zoom:9,
-      transitionDuration: 500
-    })
-;
-
-  }else{
-    return null
-  }
-  }
-
-  const onHover = event => { 
-
-    if (event.features[0] !== undefined)  {
-    
-      const feature = event.features[0];
-    
-    if (feature.layer.id === 'unclustered-point') { setPharmacy(feature) }
-  }
-    
-  }
-    
-
 /* const handleGeocoderViewportChange = useCallback(
   (newViewport) => {
     const geocoderDefaultOverrides = { transitionDuration: 1000 };
@@ -271,26 +195,16 @@ const pharmacyPopup  = pharmacy
         </form>
     </div>
     <div className='App-container'>
-    <div className='App-left'>
-      <div id='map'>
+    <div className='App-left'>  
         <  ReactMapGL  
               ref={mapRef}
-            {...viewport}
-            onViewportChange={setViewport}
+            {...viewport} 
+            maxZoom={20}
+            onViewportChange={handleViewportChange}
             mapStyle="mapbox://styles/mapbox/streets-v11"  
-            mapboxApiAccessToken={token}
-            interactiveLayerIds={[clusterLayer.id, unclusteredPointLayer.id]}
-            onClick={onClick}
-            onLoad={useCallback(() => {
-              const map = mapRef.current.getMap();
-               map.loadImage('./cross.png', (error, image) => {
-              if (error) throw error;
-              if (!map.hasImage('crossPin')) map.addImage('crossPin', image, );
-                  });
-            }, [mapRef])}
-            onHover={onHover}
+            mapboxApiAccessToken={token}  
             >
-            {/*   {pharmaciesMarkers } */}
+              {pharmaciesMarkers }
         {/*   <div className='map-controlls'> */}
             <NavigationControl style={navStyle} />
             <Geocoder
@@ -310,22 +224,8 @@ const pharmacyPopup  = pharmacy
             positionOptions={{enableHighAccuracy: true}}
             />
           {/* </div> */}
-          {pharmacyPopup }
-          <Source
-          id="pharmacies"
-          type="geojson"
-          data= {pharmaciesData.slice(0, 2000)}
-          cluster={true}
-      
-          clusterMaxZoom={24}
-          clusterRadius={50}
-        >
-          <Layer {...clusterLayer} />
-          <Layer {...clusterCountLayer} />
-          <Layer  {...unclusteredPointLayer} />
-        </Source>
+            {pharmacyPopup }
           </ReactMapGL>
-          </div>  
         </div> 
         <div className='App-right'>
          {pharmaciesList}

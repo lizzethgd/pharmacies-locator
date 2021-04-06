@@ -61,7 +61,7 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
         <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
         <Typography className={classes.pos} color="textPrimary">
-        <Phone style={{ color: 'green'}} fontSize="small"/> {phone}
+        {phone ?  <Phone style={{ color: 'green'}} fontSize="small"/> : null } {phone}
         </Typography>
         <Typography className={classes.pos} color="textPrimary">
           {addres} {houseNumero}
@@ -69,9 +69,7 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
         <Typography className={classes.pos} color="textPrimary">
           {postalCode} {city}
         </Typography>
-        <Typography className={classes.pos} color="textPrimary">
-          {web}
-        </Typography>
+        <a href={web}>{web}</a> 
         <Typography className={classes.pos} color="textPrimary">
         <TransferWithinAStation style={{ color: 'green' }} fontSize="small"/> {numeral(distance).format('0.00')} km
         </Typography>

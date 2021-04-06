@@ -1,7 +1,7 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import Geocoder from 'react-map-gl-geocoder'
-import ReactMapGL, { NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
+import ReactMapGL, {  NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
 
 const geolocateStyle = {
     top: 0,
@@ -20,6 +20,7 @@ const fullscreenControlStyle = {
     right: 0,
     padding: '10px'
 };
+
 
 const Map = ({ mapRef, geocoderContainerRef, viewport, handleResult, handleViewportChange, markers, popup }) => {
 
@@ -53,6 +54,7 @@ return (
         positionOptions={{enableHighAccuracy: true}}
     />
     {popup}
+  
     </ReactMapGL>
 </div>
 )

@@ -1,10 +1,10 @@
 
-import {NavLink} from 'react-router-dom'
 import { useRef, useState, useEffect, useCallback } from "react"
-import * as pharmaciesData from './data/pharmaciesFi.json'
+import pharmaciesData from './data/pharmaciesFi.json'
 import { Marker, Popup, WebMercatorViewport, FlyToInterpolator } from "react-map-gl";
-import CardInfo from './Card'
+import CardInfo from './CardInfo'
 import Map from './Map'
+import useSupercluster from "use-supercluster";
 
 const turf = require('@turf/turf');
 
@@ -20,6 +20,7 @@ const App = () =>{
     zoom: 16
   });
 
+  
   const [pharmacies, setPharmacies] = useState([]);
   const [pharmacy, setPharmacy] = useState('');
   const [error, setError] = useState(''); 
@@ -62,7 +63,7 @@ const handleResult = useCallback( (e) => {
     [applyToArray(Math.max, pointsLong), applyToArray(Math.max, pointsLat)]
     ]
     const viewport = new WebMercatorViewport({ width: 800, height: 600 })
-    .fitBounds(cornersLongLat, { padding:  3})
+    .fitBounds(cornersLongLat, { padding:  5})
 
     const geocoderDefaultOverrides = {longitude: viewport.longitude, latitude: viewport.latitude, 
                         zoom: nearest.length >1 ? viewport.zoom : 15, transitionDuration: 1000 }
@@ -99,19 +100,19 @@ const pharmaciesMarkers= pharmacies.map(pharmacy=>
 
 const pharmacyPopup  = pharmacy 
   ? 
-    (<Popup 
+    (<Popup className='popup' 
       latitude={pharmacy.geometry.coordinates[1]}
       longitude={pharmacy.geometry.coordinates[0]}
+      tipSize={30}
       onClose={() => {
           setPharmacy(null)
       }}
     >
-      <div>
-        <h2>{pharmacy.properties.name}</h2>
+    <div >
+        <h4>{pharmacy.properties.name}</h4>
         <p>{pharmacy.properties.opening_hours}</p>
         <p>{pharmacy.properties.phone}</p>
-        <p>{pharmacy.properties['addr:street']} {pharmacy.properties['addr:housenumber']}</p>
-        <p>{pharmacy.properties['postal_code']} {pharmacy.properties['addr:city']}</p>
+        <p>{pharmacy.properties['addr:street']} {pharmacy.properties['addr:housenumber']}, {pharmacy.properties['addr:postcode']} {pharmacy.properties['addr:city']}</p>
         <p>{pharmacy.properties.website}</p>
       </div>
     </Popup>)

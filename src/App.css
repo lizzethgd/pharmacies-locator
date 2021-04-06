@@ -51,10 +51,23 @@
 .marker {
   background: none;
   border: none;
+  cursor: pointer
+}
+
+.popup{
+  cursor: default
+}
+
+img{
+  margin: 0.5rem 0 0.5rem;
 }
 
 #form{
   display: flex;
+}
+
+li{
+  list-style:none
 }
 
 @media (prefers-reduced-motion: no-preference) {

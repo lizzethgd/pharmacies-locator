@@ -1,0 +1,18 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+xmlns:svgjs="http://svgjs.com/svgjs" version="1.1" width="20" height="20" x="0" y="0" 
+viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve">
+<g><path xmlns="http://www.w3.org/2000/svg" d="m195 90c-57.898438 0-105 47.101562-105 105s47.101562 
+105 105 105 105-47.101562 105-105-47.101562-105-105-105zm60 
+120h-45v45h-30v-45h-45v-30h45v-45h30v45h45zm0 0" fill="#0e7c0f" data-original="#000000" style=""/>
+<path xmlns="http://www.w3.org/2000/svg" d="m195 0c-107.523438 0-195 87.476562-195 195 0 
+43.886719 14.238281 85.332031 41.183594 119.859375l153.816406 197.140625 
+153.816406-197.144531c26.945313-34.523438 41.183594-75.96875 41.183594-119.855469 
+0-107.523438-87.476562-195-195-195zm0 330c-74.4375 0-135-60.5625-135-135s60.5625-135 
+135-135 135 60.5625 135 135-60.5625 135-135 135zm0 0" fill="#0e7c0f" data-original="#000000" 
+style={{
+          cursor: 'pointer',
+          fill: '#d00',
+          stroke: 'none',
+          transform: `translate(${-SIZE / 2}px,${-SIZE}px)`
+        }}/></g></svg>
