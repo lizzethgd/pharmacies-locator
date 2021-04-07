@@ -1512,7 +1512,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/267009335",
+        "itemId": "node/267009335",
         "addr:city": "Kerava",
         "addr:country": "FI",
         "addr:housenumber": "2",
@@ -1539,7 +1539,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/267009448",
+        "itemId": "node/267009448",
         "addr:city": "Kerava",
         "addr:country": "FI",
         "addr:housenumber": "4",
@@ -1566,7 +1566,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/267935234",
+        "itemId": "node/267935234",
         "addr:city": "Kerava",
         "addr:country": "FI",
         "addr:housenumber": "12",
@@ -1590,7 +1590,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/270755786",
+        "itemId": "node/270755786",
         "amenity": "pharmacy",
         "name": "Riihikallion sivuapteekki",
         "wheelchair": "yes"
@@ -1607,7 +1607,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/271690373",
+        "itemId": "node/271690373",
         "addr:city": "Nurmijärvi",
         "addr:housenumber": "5",
         "addr:postcode": "05200",
@@ -1629,7 +1629,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/276457372",
+        "itemId": "node/276457372",
         "addr:city": "Espoo",
         "addr:housenumber": "2",
         "addr:postcode": "02710",
@@ -1654,7 +1654,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/277157409",
+        "itemId": "node/277157409",
         "addr:city": "Kokkola",
         "addr:housenumber": "1",
         "addr:postcode": "67100",
@@ -1681,7 +1681,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/279075564",
+        "itemId": "node/279075564",
         "addr:city": "Kokkola",
         "addr:housenumber": "15",
         "addr:postcode": "67100",
@@ -1711,7 +1711,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/279248233",
+        "itemId": "node/279248233",
         "addr:city": "Keminmaa",
         "addr:housenumber": "1-3",
         "addr:postcode": "94450",
@@ -1736,7 +1736,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/281054685",
+        "itemId": "node/281054685",
         "addr:city": "Inkoo",
         "addr:housenumber": "12",
         "addr:postcode": "10210",
@@ -1763,7 +1763,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/281189274",
+        "itemId": "node/281189274",
         "amenity": "pharmacy",
         "is_in": "Saarijärvi, Finland",
         "name": "Saarijärven apteekki",
@@ -1781,7 +1781,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/281267470",
+        "itemId": "node/281267470",
         "amenity": "pharmacy",
         "name": "Ekenäs första apotek",
         "name:fi": "Tammisaaren 1. apteekki",
@@ -1800,7 +1800,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/282546400",
+        "itemId": "node/282546400",
         "addr:city": "Leivonmäki",
         "addr:housenumber": "16",
         "addr:postcode": "41770",
@@ -1826,7 +1826,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/282929238",
+        "itemId": "node/282929238",
         "amenity": "pharmacy",
         "app:apple": "https://itunes.apple.com/se/app/apotek-hj%C3%A4rtat-n%C3%A4ra-dig/id1150817089",
         "app:google": "https://play.google.com/store/apps/details?id=com.presencekit.apotek.se&hl=en_US",
@@ -1853,7 +1853,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/285492535",
+        "itemId": "node/285492535",
         "addr:city": "Järvenpää",
         "addr:housenumber": "44",
         "addr:postcode": "04400",
@@ -1878,7 +1878,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/286876073",
+        "itemId": "node/286876073",
         "addr:city": "Umeå",
         "addr:housenumber": "3",
         "addr:postcode": "907 30",
@@ -1903,7 +1903,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/287012071",
+        "itemId": "node/287012071",
         "amenity": "pharmacy",
         "dispensing": "yes",
         "is_in:country": "Finland",
@@ -1924,7 +1924,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/287020529",
+        "itemId": "node/287020529",
         "amenity": "pharmacy",
         "dispensing": "yes",
         "fixme": "laita oikeaan paikkaan",
@@ -1945,7 +1945,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/287741752",
+        "itemId": "node/287741752",
         "amenity": "pharmacy",
         "app:apple": "https://itunes.apple.com/se/app/kronans-apotek/id1129771604?l=en",
         "app:google": "https://play.google.com/store/apps/details?id=se.kronansapotek.kronan",
@@ -1969,7 +1969,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/292818261",
+        "itemId": "node/292818261",
         "addr:city": "Lappeenranta",
         "addr:housenumber": "2",
         "addr:postcode": "53850",
@@ -1997,7 +1997,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/294148791",
+        "itemId": "node/294148791",
         "amenity": "pharmacy",
         "healthcare": "pharmacy",
         "name": "Myllyojan Apteekki"
@@ -2014,7 +2014,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/295211491",
+        "itemId": "node/295211491",
         "addr:city": "Umeå",
         "addr:country": "SE",
         "addr:housenumber": "3C",
@@ -2040,7 +2040,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/295211492",
+        "itemId": "node/295211492",
         "amenity": "pharmacy",
         "app:apple": "https://itunes.apple.com/se/app/kronans-apotek/id1129771604?l=en",
         "app:google": "https://play.google.com/store/apps/details?id=se.kronansapotek.kronan",
@@ -2065,7 +2065,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/295563744",
+        "itemId": "node/295563744",
         "addr:housenumber": "21",
         "amenity": "pharmacy",
         "is_in": "Luvia,Finland",
@@ -2084,7 +2084,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/297538200",
+        "itemId": "node/297538200",
         "amenity": "pharmacy"
       },
       "geometry": {
@@ -2099,7 +2099,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/297972339",
+        "itemId": "node/297972339",
         "addr:city": "Hyvinkää",
         "addr:housenumber": "9",
         "addr:postcode": "05800",
@@ -2125,7 +2125,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/298107287",
+        "itemId": "node/298107287",
         "addr:city": "Järvenpää",
         "addr:housenumber": "41",
         "addr:postcode": "04410",
@@ -2152,7 +2152,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/298463031",
+        "itemId": "node/298463031",
         "addr:city": "Jokela",
         "addr:housenumber": "5",
         "addr:postcode": "05400",
@@ -2176,7 +2176,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/299093459",
+        "itemId": "node/299093459",
         "addr:housename": "Prisma",
         "addr:housenumber": "2",
         "addr:postcode": "33400",
@@ -2197,7 +2197,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/300433671",
+        "itemId": "node/300433671",
         "addr:city": "Jyväskylä",
         "addr:housenumber": "39",
         "addr:postcode": "40100",
@@ -2225,7 +2225,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/303691789",
+        "itemId": "node/303691789",
         "addr:city": "Oulu",
         "addr:country": "FI",
         "addr:housenumber": "27",
@@ -2253,7 +2253,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/304486598",
+        "itemId": "node/304486598",
         "addr:city": "Kittilä",
         "addr:housenumber": "41 A 4",
         "addr:postcode": "99100",
@@ -2281,7 +2281,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/304627087",
+        "itemId": "node/304627087",
         "addr:city": "Hyvinkää",
         "addr:housenumber": "70",
         "addr:postcode": "05830",
@@ -2307,7 +2307,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/305663739",
+        "itemId": "node/305663739",
         "addr:city": "Masala",
         "addr:housenumber": "2",
         "addr:postcode": "02430",
@@ -2331,7 +2331,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/305950654",
+        "itemId": "node/305950654",
         "amenity": "pharmacy",
         "dispensing": "yes",
         "website:stock": "https://www.fass.se/"
@@ -2348,7 +2348,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/309115366",
+        "itemId": "node/309115366",
         "addr:city": "Nokia",
         "addr:housenumber": "21",
         "addr:postcode": "37100",
@@ -2373,7 +2373,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/309764205",
+        "itemId": "node/309764205",
         "amenity": "pharmacy",
         "name": "Радуга"
       },
@@ -2389,7 +2389,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/311101154",
+        "itemId": "node/311101154",
         "amenity": "pharmacy",
         "contact:vk": "https://vk.com/aptekayteatra",
         "healthcare": "pharmacy",
@@ -2408,7 +2408,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/311101168",
+        "itemId": "node/311101168",
         "amenity": "pharmacy",
         "healthcare": "pharmacy",
         "name": "Витал",
@@ -2427,7 +2427,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/311338081",
+        "itemId": "node/311338081",
         "addr:city": "Savonlinna",
         "addr:country": "FI",
         "addr:housenumber": "1",
@@ -2449,7 +2449,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/312989758",
+        "itemId": "node/312989758",
         "addr:city": "Ähtäri",
         "addr:housenumber": "12",
         "addr:postcode": "63700",
@@ -2475,7 +2475,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/322886131",
+        "itemId": "node/322886131",
         "addr:city": "Halli",
         "addr:housenumber": "4",
         "addr:postcode": "35600",
@@ -2500,7 +2500,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/330316170",
+        "itemId": "node/330316170",
         "amenity": "pharmacy",
         "dispensing": "yes",
         "healthcare": "pharmacy",
@@ -2518,7 +2518,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/330679451",
+        "itemId": "node/330679451",
         "addr:city": "Salo",
         "addr:housenumber": "14",
         "addr:postcode": "24240",
@@ -2545,7 +2545,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/331271940",
+        "itemId": "node/331271940",
         "amenity": "pharmacy",
         "healthcare": "pharmacy",
         "name": "Родник здоровья",
@@ -2563,7 +2563,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/339212972",
+        "itemId": "node/339212972",
         "addr:city": "Vantaa",
         "addr:country": "FI",
         "addr:housenumber": "6",
@@ -2590,7 +2590,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/339394777",
+        "itemId": "node/339394777",
         "amenity": "pharmacy",
         "healthcare": "pharmacy",
         "name": "Озерки",
@@ -2610,7 +2610,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/343471380",
+        "itemId": "node/343471380",
         "amenity": "pharmacy",
         "healthcare": "pharmacy",
         "name": "Петербургские аптеки",
@@ -2631,7 +2631,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/345303440",
+        "itemId": "node/345303440",
         "addr:city": "Hartola",
         "addr:country": "FI",
         "addr:housenumber": "52",
@@ -2657,7 +2657,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/347468826",
+        "itemId": "node/347468826",
         "addr:city": "Vantaa",
         "addr:housenumber": "37",
         "addr:postcode": "01300",
@@ -2682,7 +2682,7 @@
     {
       "type": "Feature",
       "properties": {
-        "@id": "node/348077567",
+        "itemId": "node/348077567",
         "addr:city": "Savonlinna",
         "addr:country": "FI",
         "addr:postcode": "57100",
