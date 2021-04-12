@@ -1,20 +1,20 @@
 import "mapbox-gl/dist/mapbox-gl.css";
 import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
-import {NavLink} from 'react-router-dom'
 import { useRef, useState, useEffect, useCallback } from "react"
 import Geocoder from 'react-map-gl-geocoder'
 import ReactMapGL, { NavigationControl, GeolocateControl, Marker, Popup, WebMercatorViewport, FlyToInterpolator, FullscreenControl } from "react-map-gl";
 import pharmaciesData from './data/pharmaciesFi.json'
 import CardInfo from './CardInfo'
 import useSupercluster from 'use-supercluster';
+import DropDown from './DropDown'
 
 const turf = require('@turf/turf');
 
 const geolocateStyle = {
-  top: 0,
-  right: 0,
-  padding: '10px'
-};
+  right: '-10px',
+  padding: '10px',
+
+}
 
 const navStyle = {
   top: 72,
@@ -42,46 +42,58 @@ const Home = () =>{
 
   const [pharmacies, setPharmacies] = useState([]);
   const [pharmacy, setPharmacy] = useState('');
-  const [error, setError] = useState(''); 
+  const [kilometres, setKilometres] = useState(5);
+  //const [error, setError] = useState('')
   //const [bounds, setBounds] = useState([]);
 
 const token = "pk.eyJ1IjoibGl6emV0aGdkIiwiYSI6ImNrZjN3aHhvNDA3NzUzMm9mcWFlbDlrYm8ifQ.yc7NKxvjXXHpPBXBaukdYA"
 const mapRef = useRef()
+
 const geocoderContainerRef = useRef()
 const geolocateContainerRef = useRef()
 
+
+const changeKm = (km) => {
+  console.log(`You choosed ${km}`);
+  setKilometres(km)
+} 
 
 const handleViewportChange = useCallback(
   (newViewport) => setViewport(newViewport),[]
 );
 
+
 const handleResult = useCallback( (e) => {
 
-console.log(e)
+    console.log(e)
 
-//const searchResult =  e.result.geometry
-const searchResult =  e.result!==undefined ? e.result.geometry : [e.coords.longitude, e.coords.latitude]
+    //const searchResult =  e.result.geometry
+    const searchResult =  e.result!==undefined ? e.result.geometry : [e.coords.longitude, e.coords.latitude]
 
-//e.result.geometry
+    //e.result.geometry
+   const km = kilometres
 
-const options = { units: 'kilometers' };
+    const options = { units: 'kilometers' };
 
-pharmaciesData.features.forEach((pharmacy) => {
-Object.defineProperty(pharmacy.properties, 'distance', {
-value: turf.distance(searchResult, pharmacy.geometry.coordinates, options),
-writable: true,
-enumerable: true,
-configurable: true
-});
-Object.defineProperty(pharmacy.properties, 'cluster', {
-  value: false,
-  enumerable: true
-  });
-});
+    pharmaciesData.features.forEach((pharmacy) => {
+    Object.defineProperty(pharmacy.properties, 'distance', {
+    value: turf.distance(searchResult, pharmacy.geometry.coordinates, options),
+    writable: true,
+    enumerable: true,
+    configurable: true
+    });
+    Object.defineProperty(pharmacy.properties, 'cluster', {
+      value: false,
+      enumerable: true
+      });
+    });
 
 /* pharmaciesData.features */
+const nearest= pharmaciesData.features.filter(pharmacy =>  (pharmacy.properties.distance <= km) );
 
-const nearest= pharmaciesData.features.filter(pharmacy => pharmacy.properties.distance <= 5);
+console.log(nearest[0].properties.distance)
+console.log(kilometres)
+console.log(nearest[0].properties.distance <= kilometres)
 
 nearest.sort((a, b) => a.properties.distance - b.properties.distance)
 
@@ -104,32 +116,8 @@ const geocoderDefaultOverrides = {longitude: viewport.longitude, latitude: viewp
 return handleViewportChange({
 ...geocoderDefaultOverrides
 });
-},[]
+},[handleViewportChange, kilometres]
 )
-
-/* const pharmaciesMarkers= pharmacies.map(pharmacy=> 
-  (<Marker key={pharmacy.properties['@id']} 
-    latitude={pharmacy.geometry.coordinates[1]}
-    longitude={pharmacy.geometry.coordinates[0]}
-    offsetLeft={-20}
-      offsetTop={-10}>
-        <button className='marker'
-          onMouseOver={() =>  {setPharmacy(pharmacy)} } 
-          onClick={e => {
-            e.preventDefault()
-              setViewport({
-                ...viewport,
-                longitude: pharmacy.geometry.coordinates[0],
-                latitude: pharmacy.geometry.coordinates[1],
-                zoom: 14,
-                transitionInterpolator: new FlyToInterpolator({speed: 2 }),
-                transitionDuration: "auto"
-              })  
-              }} 
-            >
-            <img src='cross.png' alt='#' />
-        </button>
-    </Marker>)) */
 
 const pharmacyPopup  = pharmacy 
   ? 
@@ -151,10 +139,10 @@ const pharmacyPopup  = pharmacy
     </Popup>)
   : null  
 
-  const pharmaciesList= pharmacies.map(pharmacy=> 
+  const pharmaciesList= pharmacies.map((pharmacy, i)=> 
     ( 
    /*  <Link to={`/ninja/${ninja._id}`} key={ninja._id}> */
-      <li key={pharmacy.properties['@id']}>
+      <li key={i}>
         <CardInfo
          name={pharmacy.properties.name}
          openinHours={pharmacy.properties.opening_hours}
@@ -247,27 +235,36 @@ const pharmaciesClusters  = clusters.map(cluster => {
       </Marker>)
 
   })
- 
+  console.log(kilometres)
+
 
   return (
     <div className="App">
+    <div className=''>
     <div className='App-header '> 
         <h2 className="title">Pharmacy Locator - REST API</h2>  
         <form id="form">
-                  <div ref={geocoderContainerRef} className=''></div>
-                  <div ref={geolocateContainerRef} className=''></div>
-                  {/* <label>Radio km:<input type="text" name="radio" /></label> */}
+        {/* <label htmlFor="kms">Select km:</label>
+            <select id="kms" name="cars" onChange={(event) => setKilometres(parseInt(event.target.value))}>
+              <option value={5} defaultChecked> 5 km</option>
+              <option value={10}>10 km</option>
+              <option value={15}>15 km</option>
+              <option value={20}>20 km</option>
+            </select> */}
+        <DropDown onChange={(km) => changeKm(km)}/>
+                  <div ref={geocoderContainerRef} className='geocoderContainer'></div>
         </form>
     </div>
     <div className='App-container'>
     <div className='App-left'>  
-        <  ReactMapGL  
-              ref={mapRef}
+        < ReactMapGL  
+            ref={mapRef}
             {...viewport} 
             maxZoom={20}
             onViewportChange={handleViewportChange}
             mapStyle="mapbox://styles/mapbox/streets-v11"  
-            mapboxApiAccessToken={token}  
+            mapboxApiAccessToken={token}
+            className={'mapClass'}
             >
               {pharmaciesClusters}
                {/*pharmaciesMarkers*/}
@@ -283,11 +280,12 @@ const pharmaciesClusters  = clusters.map(cluster => {
             onResult={handleResult}
             />
             <FullscreenControl style={fullscreenControlStyle} />
-            <GeolocateControl
-            containerRef={geolocateContainerRef}
+          <GeolocateControl
+            className={'geolocateClass'}
             style={geolocateStyle}
             onGeolocate={handleResult}
             positionOptions={{enableHighAccuracy: true}}
+            label={'Find a pharmacy with your location'}
             />
           {/* </div> */}
             {pharmacyPopup }
@@ -296,6 +294,7 @@ const pharmaciesClusters  = clusters.map(cluster => {
         <div className='App-right'>
          {pharmaciesList}
 
+        </div>
         </div>
         </div>
         <div className='App-footer'>
@@ -307,3 +306,5 @@ const pharmaciesClusters  = clusters.map(cluster => {
 }
 
 export default Home;
+
+// style={{ position: 'relative', top: 0,  marginTop: '75px', zIndex: 0}}

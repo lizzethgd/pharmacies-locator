@@ -1,7 +1,7 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 
-import Home from './HomeGeojasonCopi';
+import Home from './Home';
 
 const App = () => {
     return (
