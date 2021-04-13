@@ -11,21 +11,22 @@ import DropDown from './DropDown'
 const turf = require('@turf/turf');
 
 const geolocateStyle = {
-  right: '-10px',
-  padding: '10px',
-
+  right: 30,
+  padding: 10,
+  top: -1,
+  zIndex: 2
 }
 
 const navStyle = {
   top: 72,
   right: 0,
-  padding: '10px'
+  padding: 10
 };
 
 const fullscreenControlStyle = {
   top: 210,
   right: 0,
-  padding: '10px'
+  padding: 10
 };
 
 const applyToArray = (func, array) => func.apply(Math, array)
@@ -36,7 +37,7 @@ const Home = () =>{
     latitude:  60.1699,
     longitude: 24.9384,
     width: "100%",
-    height: "90vh",
+    height: "90%",
     zoom: 16
   });
 
@@ -44,14 +45,11 @@ const Home = () =>{
   const [pharmacy, setPharmacy] = useState('');
   const [kilometres, setKilometres] = useState(5);
   //const [error, setError] = useState('')
-  //const [bounds, setBounds] = useState([]);
 
 const token = "pk.eyJ1IjoibGl6emV0aGdkIiwiYSI6ImNrZjN3aHhvNDA3NzUzMm9mcWFlbDlrYm8ifQ.yc7NKxvjXXHpPBXBaukdYA"
 const mapRef = useRef()
 
 const geocoderContainerRef = useRef()
-const geolocateContainerRef = useRef()
-
 
 const changeKm = (km) => {
   console.log(`You choosed ${km}`);
@@ -61,7 +59,6 @@ const changeKm = (km) => {
 const handleViewportChange = useCallback(
   (newViewport) => setViewport(newViewport),[]
 );
-
 
 const handleResult = useCallback( (e) => {
 
@@ -186,8 +183,8 @@ const pharmaciesClusters  = clusters.map(cluster => {
          <div
                   className="cluster-marker"
                   style={{
-                    width: `${10 + (pointCount / pharmacies.length) * 20}px`,
-                    height: `${10 + (pointCount / pharmacies.length) * 20}px`
+                    width: `${10 + (pointCount / pharmacies.length) * 30}px`,
+                    height: `${10 + (pointCount / pharmacies.length) * 30}px`
                   }}
                   onClick={() => {
                     const expansionZoom = Math.min(
@@ -230,7 +227,7 @@ const pharmaciesClusters  = clusters.map(cluster => {
                 })  
                 }} 
               >
-              <img src='cross.png' alt='#' />
+              <img src='location48.png' alt='#' />
           </button>
       </Marker>)
 
@@ -244,15 +241,8 @@ const pharmaciesClusters  = clusters.map(cluster => {
     <div className='App-header '> 
         <h2 className="title">Pharmacy Locator - REST API</h2>  
         <form id="form">
-        {/* <label htmlFor="kms">Select km:</label>
-            <select id="kms" name="cars" onChange={(event) => setKilometres(parseInt(event.target.value))}>
-              <option value={5} defaultChecked> 5 km</option>
-              <option value={10}>10 km</option>
-              <option value={15}>15 km</option>
-              <option value={20}>20 km</option>
-            </select> */}
-        <DropDown onChange={(km) => changeKm(km)}/>
-                  <div ref={geocoderContainerRef} className='geocoderContainer'></div>
+            <DropDown onChange={(km) => changeKm(km)}/>
+            <div ref={geocoderContainerRef} className='geocoderContainer'></div>
         </form>
     </div>
     <div className='App-container'>
@@ -281,11 +271,12 @@ const pharmaciesClusters  = clusters.map(cluster => {
             />
             <FullscreenControl style={fullscreenControlStyle} />
           <GeolocateControl
-            className={'geolocateClass'}
             style={geolocateStyle}
             onGeolocate={handleResult}
             positionOptions={{enableHighAccuracy: true}}
+            showAccuracyCircle={false}
             label={'Find a pharmacy with your location'}
+            className={'geolocateClass'}
             />
           {/* </div> */}
             {pharmacyPopup }
@@ -293,7 +284,6 @@ const pharmaciesClusters  = clusters.map(cluster => {
         </div> 
         <div className='App-right'>
          {pharmaciesList}
-
         </div>
         </div>
         </div>

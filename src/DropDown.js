@@ -11,7 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { useRef, useState} from "react"
 
-const options = [ 5, 10, 15, 20, 50] ;
+const options = [ 5, 10, 15, 20, 30] ;
 
 const DropDown = (props) => {
 
@@ -37,12 +37,14 @@ const DropDown = (props) => {
     setOpen(false);
   };
 
+
+
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
         <ButtonGroup variant="contained" color="default" ref={anchorRef} aria-label="split button">
         <Button  style= {{ textTransform : 'lowercase' }}>{options[selectedIndex]} km</Button>
-          <Button
+          <Button 
             color='inherit'
             style= {{background : '#098f2b' }}
             size="small"
@@ -50,7 +52,8 @@ const DropDown = (props) => {
             aria-expanded={open ? 'true' : undefined}
             aria-label="select merge strategy"
             aria-haspopup="menu"
-            onClick={handleToggle} 
+            onClick={handleToggle}
+            className={'buttonDrop'}
           >
           <ArrowDropDownIcon />
           </Button>

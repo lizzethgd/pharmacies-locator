@@ -1,5 +1,7 @@
+body { margin: 0; padding: 0; background-color: #9ba79d    }
+
 .App {
-  
+  text-align: center;
 }
 
 .App-logo {
@@ -9,7 +11,7 @@
 
 .App-header {
   background-color: #098f2b;
-  min-height: 70px;
+  min-height: 4vh;
   position: absolute;
   display: flex;
   justify-content: space-between;
@@ -22,46 +24,56 @@
   z-index: 1;
 }
 
-/* .App-main{
-  
-} */
-
 .App-container {
   display: flex;
   justify-content: space-between;
-  background-color: #fceeac;
-
   width: 100%;
   height: 100%;
-  /*background-color: #d87f0a*/
   z-index: 0;
 }
 
 .App-left {
-  width: 76%;
-  background-color: #0016b0;
-  
-
+  width: 77%;
+  padding: 10px;
+  padding-right: 5px;
 }
 
 .App-right {
- margin-top: 70px;
-  width: 24%;
+  margin-top: 70px;
+  width: 23%;
   overflow: auto;
-  height: 830px;
-  
+  height: 800px;
+  padding: 10px;
+  padding-left: 5px;
 }
 
- .mapClass{
-/*   display: flex; */
-top: 70px;
-  /* top: 85px */
-} 
+.list-container{
+  padding: 10px;
+  background-color: #0dc7e7; 
+  border-radius: 15px;
 
-.geolocateClass{
+}
+.mapClass{
+  top: 70px;
+  border-radius: 15px;
+}
+
+.buttonDrop:hover::after{
+  content: 'Choose km distance';
+  background-color:  #098f2b;
+  color: white;
+  width: 200px;
+  height: 30px;
+  position: absolute;
+  top: 50px;
+  right: -50px;
+ 
+}
+
+/* .geolocateClass{
 top: 13px;
 z-index: 2;
-}
+} */
 
 .App-footer {
   background-color: #098f2b;
@@ -72,9 +84,8 @@ z-index: 2;
   color: white;
   padding: 0 15px 0;
   position: absolute;
-  top: 95vh;
+  bottom: -1vh;
   width: 98.5%;
- 
 }
 
 .marker {
@@ -101,7 +112,7 @@ li{
 
 .cluster-marker {
   color: #fff;
-  background: #1978c8;
+  background: #421985b7;
   border-radius: 50%;
   padding: 10px;
   display: flex;
@@ -124,13 +135,16 @@ li{
   border: 2px solid #0016b0;
 }
 
+.geocoderContainer{
+  margin: 0 10px 0 20px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
  
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

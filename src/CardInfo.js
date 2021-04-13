@@ -38,12 +38,12 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
     }; 
     
   return (
-    <Card className={classes.root} variant="outlined" style={{ backgroundColor: '#fceeac' }}>
-      <CardContent>
+    <Card className={classes.root} variant="outlined" style={{ backgroundColor: '#06357c', color:  '#fff', padding: '0px', marginBottom: '10px', borderRadius: '8px'}}>
+      <CardContent style={{  padding: '3px 0 0'}}>
       <Typography variant="h5" component="h2">
           {name} 
         </Typography>
-        <Typography className={classes.title} color="textPrimary" gutterBottom>
+        <Typography className={classes.title} color="inherit" gutterBottom>
           {openinHours}
         </Typography>
         <IconButton
@@ -59,18 +59,18 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
         </IconButton>
         </CardContent>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-        <Typography className={classes.pos} color="textPrimary">
+        <CardContent style={{ padding: '0 0 3px'}}>
+        <Typography className={classes.pos} color="inherit">
         {phone ?  <Phone style={{ color: 'green'}} fontSize="small"/> : null } {phone}
         </Typography>
-        <Typography className={classes.pos} color="textPrimary">
+        <Typography className={classes.pos} color="inherit">
           {addres} {houseNumero}
         </Typography>
-        <Typography className={classes.pos} color="textPrimary">
+        <Typography className={classes.pos} color="inherit">
           {postalCode} {city}
         </Typography>
         <a href={web}>{web}</a> 
-        <Typography className={classes.pos} color="textPrimary">
+        <Typography className={classes.pos} color="inherit">
         <TransferWithinAStation style={{ color: 'green' }} fontSize="small"/> {numeral(distance).format('0.00')} km
         </Typography>
         </CardContent>
