@@ -1,6 +1,6 @@
 {
-  "name": "fuelprice",
-  "description": "Create a React web app that uses Mapbox GL JS to render a map.",
+  "name": "pharmacy-locator",
+  "description": "React and Mapbox",
   "version": "0.1.0",
   "engines": {
     "node": "14.5.0",

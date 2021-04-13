@@ -46,7 +46,7 @@ const Home = () =>{
   const [kilometres, setKilometres] = useState(5);
   //const [error, setError] = useState('')
 
-const token = "pk.eyJ1IjoibGl6emV0aGdkIiwiYSI6ImNrZjN3aHhvNDA3NzUzMm9mcWFlbDlrYm8ifQ.yc7NKxvjXXHpPBXBaukdYA"
+const token = process.env.REACT_APP_MAPBOX_TOKEN 
 const mapRef = useRef()
 
 const geocoderContainerRef = useRef()
