@@ -2,6 +2,10 @@
   "name": "fuelprice",
   "description": "Create a React web app that uses Mapbox GL JS to render a map.",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.5.0",
+    "npm": "6.14.5"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.3",
@@ -28,7 +32,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild" : "npm install--only=dev && npm install & npm run build"
   },
   "eslintConfig": {
     "extends": [
