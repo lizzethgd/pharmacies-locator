@@ -42,7 +42,7 @@ body { margin: 0; padding: 0; background-color: #74ac7c  }
   margin-top: 70px;
   width: 23%;
   overflow: auto;
-  height: 800px;
+  height: 85vh;
   padding: 10px;
   padding-left: 5px;
 }
