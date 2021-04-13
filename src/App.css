@@ -1,4 +1,4 @@
-body { margin: 0; padding: 0; background-color: #9ba79d    }
+body { margin: 0; padding: 0; background-color: #74ac7c  }
 
 .App {
   text-align: center;
@@ -47,12 +47,6 @@ body { margin: 0; padding: 0; background-color: #9ba79d    }
   padding-left: 5px;
 }
 
-.list-container{
-  padding: 10px;
-  background-color: #0dc7e7; 
-  border-radius: 15px;
-
-}
 .mapClass{
   top: 70px;
   border-radius: 15px;
