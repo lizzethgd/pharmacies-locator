@@ -11,7 +11,7 @@ import DropDown from './DropDown'
 const turf = require('@turf/turf');
 
 const geolocateStyle = {
-  right: 60,
+  right: 40,
   padding: 10,
   top: -1,
   zIndex: 2
@@ -36,7 +36,7 @@ const Home = () =>{
   const [viewport, setViewport] = useState({
     latitude:  60.1699,
     longitude: 24.9384,
-    width: "100%",
+    width: "75vw",
     height: "86vh",
     zoom: 16
   });
