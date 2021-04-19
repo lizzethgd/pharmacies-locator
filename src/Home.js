@@ -11,9 +11,9 @@ import DropDown from './DropDown'
 const turf = require('@turf/turf');
 
 const geolocateStyle = {
-  right: 40,
+  right: 120,
   padding: 10,
-  top: -1,
+  top: -8,
   zIndex: 2
 }
 
@@ -34,11 +34,11 @@ const applyToArray = (func, array) => func.apply(Math, array)
 const Home = () =>{
 
   const [viewport, setViewport] = useState({
-    latitude:  60.1699,
+    latitude:  60.2055,
     longitude: 24.9384,
-    width: "75vw",
-    height: "86vh",
-    zoom: 16
+    width: "99.5%",
+    height: "85.5%",
+    zoom: 9
   });
 
   const [pharmacies, setPharmacies] = useState([]);
@@ -105,7 +105,7 @@ const cornersLongLat =  [
 //setBounds(cornersLongLat)
 
 const viewport = new WebMercatorViewport({ width: 800, height: 600 })
-.fitBounds(cornersLongLat, { padding:  3})
+.fitBounds(cornersLongLat, { padding:  100})
 
 const geocoderDefaultOverrides = {longitude: viewport.longitude, latitude: viewport.latitude, 
                       zoom: nearest.length >1 ? viewport.zoom : 15, transitionDuration: 1000 }
@@ -131,7 +131,7 @@ const pharmacyPopup  = pharmacy
         <p>{pharmacy.properties.phone}</p>
         <p>{pharmacy.properties['addr:street']} {pharmacy.properties['addr:housenumber']}</p>
         <p>{pharmacy.properties['addr:postcode']} {pharmacy.properties['addr:city']}</p>
-        <p>{pharmacy.properties.website}</p>
+        <a href={pharmacy.properties.website} >{pharmacy.properties.website}</a>
       </div>
     </Popup>)
   : null  
@@ -184,7 +184,8 @@ const pharmaciesClusters  = clusters.map(cluster => {
                   className="cluster-marker"
                   style={{
                     width: `${10 + (pointCount / pharmacies.length) * 30}px`,
-                    height: `${10 + (pointCount / pharmacies.length) * 30}px`
+                    height: `${10 + (pointCount / pharmacies.length) * 30}px`,
+                    cursor: 'pointer'
                   }}
                   onClick={() => {
                     const expansionZoom = Math.min(

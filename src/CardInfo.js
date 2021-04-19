@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 15,
   },
   pos: {
-    marginBottom: 10,
+    marginBottom: 5,
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -24,7 +24,8 @@ const useStyles = makeStyles((theme) => ({
   },
   expandOpen: {
     transform: 'rotate(180deg)',
-  },
+  }
+
 }))
 
 const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, city, web, distance}) => {
@@ -53,15 +54,15 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
           onClick={handleExpandClick}
           aria-expanded={expanded}
           aria-label="show more"
-          style={{ color: 'green' }}
+          style={{ color: '#39FF14', padding: '0 0 0.5px' }}
         >
           <ExpandMore/>
         </IconButton>
         </CardContent>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent style={{ padding: '0 0 3px'}}>
+        <CardContent style={{ padding: '0 0 0.5px'}}>
         <Typography className={classes.pos} color="inherit">
-        {phone ?  <Phone style={{ color: 'green'}} fontSize="small"/> : null } {phone}
+        {phone ?  <Phone style={{ color: '#39FF14'}} fontSize="small"/> : null } {phone}
         </Typography>
         <Typography className={classes.pos} color="inherit">
           {addres} {houseNumero}
@@ -69,9 +70,9 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
         <Typography className={classes.pos} color="inherit">
           {postalCode} {city}
         </Typography>
-        <a href={web}>{web}</a> 
+        <a  style={{ color: '#39FF14'}} target="_blank" rel="noreferrer" href={web}>{web}</a> 
         <Typography className={classes.pos} color="inherit">
-        <TransferWithinAStation style={{ color: 'green' }} fontSize="small"/> {numeral(distance).format('0.00')} km
+        <TransferWithinAStation style={{ color: '#39FF14' }} fontSize="small"/> {numeral(distance).format('0.00')} km
         </Typography>
         </CardContent>
       </Collapse>

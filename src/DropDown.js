@@ -37,8 +37,6 @@ const DropDown = (props) => {
     setOpen(false);
   };
 
-
-
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item xs={12}>
@@ -46,7 +44,7 @@ const DropDown = (props) => {
         <Button  style= {{ textTransform : 'lowercase' }}>{options[selectedIndex]} km</Button>
           <Button 
             color='inherit'
-            style= {{background : '#098f2b' }}
+            style= {{background : '#54d30a' }}
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
