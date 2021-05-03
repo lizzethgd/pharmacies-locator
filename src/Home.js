@@ -7,19 +7,17 @@ import pharmaciesData from './data/pharmaciesFi.json'
 import CardInfo from './CardInfo'
 import useSupercluster from 'use-supercluster';
 import DropDown from './DropDown'
+import {render} from 'react-dom';
+import PopupInfo from './PopupInfo'
 
 const turf = require('@turf/turf');
 
 const geolocateStyle = {
-  right: 120,
   padding: 10,
-  top: -8,
   zIndex: 2
 }
 
 const navStyle = {
-  top: 72,
-  right: 0,
   padding: 10
 };
 
@@ -36,8 +34,8 @@ const Home = () =>{
   const [viewport, setViewport] = useState({
     latitude:  60.2055,
     longitude: 24.9384,
-    width: "99.5%",
-    height: "85.5%",
+    width: "97.5%",
+    height: "88.5%",
     zoom: 9
   });
 
@@ -104,8 +102,8 @@ const cornersLongLat =  [
 ]
 //setBounds(cornersLongLat)
 
-const viewport = new WebMercatorViewport({ width: 800, height: 600 })
-.fitBounds(cornersLongLat, { padding:  100})
+const viewport = new WebMercatorViewport({ width: 600, height: 400 })
+.fitBounds(cornersLongLat, { paddingTop: 40, paddingButtom: 40})
 
 const geocoderDefaultOverrides = {longitude: viewport.longitude, latitude: viewport.latitude, 
                       zoom: nearest.length >1 ? viewport.zoom : 15, transitionDuration: 1000 }
@@ -116,23 +114,27 @@ return handleViewportChange({
 },[handleViewportChange, kilometres]
 )
 
+const goToSingleLocation = (e, latitude, longitude) => {
+  e.preventDefault()
+  setViewport({
+    ...viewport,
+    latitude: latitude,
+    longitude: longitude,
+    zoom: 15.5,
+    transitionInterpolator: new FlyToInterpolator({speed: 2 }),
+    transitionDuration: "auto"
+  }) 
+}
+
 const pharmacyPopup  = pharmacy 
   ? 
-    (<Popup 
+    (<Popup
+      className='popupStyle'
       latitude={pharmacy.geometry.coordinates[1]}
       longitude={pharmacy.geometry.coordinates[0]}
-      onClose={() => {
-          setPharmacy(null)
-      }}
+      onClose={setPharmacy}
     >
-      <div>
-        <h2>{pharmacy.properties.name}</h2>
-        <p>{pharmacy.properties.opening_hours}</p>
-        <p>{pharmacy.properties.phone}</p>
-        <p>{pharmacy.properties['addr:street']} {pharmacy.properties['addr:housenumber']}</p>
-        <p>{pharmacy.properties['addr:postcode']} {pharmacy.properties['addr:city']}</p>
-        <a href={pharmacy.properties.website} >{pharmacy.properties.website}</a>
-      </div>
+      <PopupInfo pharmacy={pharmacy.properties}/>
     </Popup>)
   : null  
 
@@ -150,6 +152,9 @@ const pharmacyPopup  = pharmacy
          city={pharmacy.properties['addr:city']}
          web={pharmacy.properties.website}
          distance={pharmacy.properties.distance}
+         latitude={pharmacy.geometry.coordinates[1]}
+         longitude={pharmacy.geometry.coordinates[0]}
+         goToSingleLocation={goToSingleLocation}
         >
 
         </CardInfo>
@@ -216,18 +221,8 @@ const pharmaciesClusters  = clusters.map(cluster => {
         offsetTop={-10}>
           <button className='marker'
             onMouseOver={() =>  {setPharmacy(cluster)} } 
-            onClick={e => {
-              e.preventDefault()
-                setViewport({
-                  ...viewport,
-                  latitude: latitude,
-                  longitude: longitude,
-                  zoom: 14,
-                  transitionInterpolator: new FlyToInterpolator({speed: 2 }),
-                  transitionDuration: "auto"
-                })  
-                }} 
-              >
+            onClick={e => {goToSingleLocation(e, latitude, longitude)}} 
+          >
               <img src='location48.png' alt='#' />
           </button>
       </Marker>)
@@ -238,13 +233,15 @@ const pharmaciesClusters  = clusters.map(cluster => {
 
   return (
     <div className="App">
-    <div className=''>
-    <div className='App-header '> 
-        <h2 className="title">Pharmacy Locator - REST API</h2>  
-        <form id="form">
+    <div className="App-main">
+    <div className='App-header'> 
+        <div id="title">&nbsp;&nbsp;Pharmacy Locator  </div>  
+        <div id="form">
             <DropDown onChange={(km) => changeKm(km)}/>
-            <div ref={geocoderContainerRef} className='geocoderContainer'></div>
-        </form>
+            <div ref={geocoderContainerRef}  
+             className='geocoderContainer'  > 
+            </div>
+        </div>
     </div>
     <div className='App-container'>
     <div className='App-left'>  
@@ -260,7 +257,7 @@ const pharmaciesClusters  = clusters.map(cluster => {
               {pharmaciesClusters}
                {/*pharmaciesMarkers*/}
         {/*   <div className='map-controlls'> */}
-            <NavigationControl style={navStyle} />
+            <NavigationControl style={navStyle} className='navControl'/>
             <Geocoder
             mapRef={mapRef}
             containerRef={geocoderContainerRef}
@@ -290,7 +287,7 @@ const pharmaciesClusters  = clusters.map(cluster => {
         </div>
         <div className='App-footer'>
         <p>Pharmacy Locator App © Lizzeth Garcia</p>
-        </div>       
+       </div>       
     </div>
     
   );
@@ -298,4 +295,7 @@ const pharmaciesClusters  = clusters.map(cluster => {
 
 export default Home;
 
+export function renderToDom(container) {
+  render(< Home/>, container);
+}
 // style={{ position: 'relative', top: 0,  marginTop: '75px', zIndex: 0}}

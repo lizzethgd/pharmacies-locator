@@ -38,20 +38,19 @@ const DropDown = (props) => {
   };
 
   return (
-    <Grid container direction="column" alignItems="center">
+    <Grid container direction="column" alignItems="center" className={'buttonDrop'}>
       <Grid item xs={12}>
-        <ButtonGroup variant="contained" color="default" ref={anchorRef} aria-label="split button">
-        <Button  style= {{ textTransform : 'lowercase' }}>{options[selectedIndex]} km</Button>
+        <ButtonGroup variant="contained" color="default" ref={anchorRef} aria-label="split button" >
+        <Button  style= {{ textTransform : 'lowercase', padding: '0.4em 1.1vw'}} >{options[selectedIndex]} km</Button>
           <Button 
             color='inherit'
-            style= {{background : '#54d30a' }}
+            style= {{background : '#54d30a'}}
             size="small"
             aria-controls={open ? 'split-button-menu' : undefined}
             aria-expanded={open ? 'true' : undefined}
             aria-label="select merge strategy"
             aria-haspopup="menu"
             onClick={handleToggle}
-            className={'buttonDrop'}
           >
           <ArrowDropDownIcon />
           </Button>
@@ -73,8 +72,6 @@ const DropDown = (props) => {
                         selected={index === selectedIndex}
                         onClick={(event) => {handleMenuItemClick(event, index) 
                                              props.onChange(option)}}
-                        style= {{ textAlign: 'right' }} 
-                        
                       >
                         {option} km
                       </MenuItem>

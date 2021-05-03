@@ -4,6 +4,7 @@ import {Phone, ExpandMore, TransferWithinAStation} from '@material-ui/icons';
 import { useState} from "react"
 import clsx from 'clsx';
 import numeral from "numeral";
+import ButtonGo from './ButtonGo'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))
 
-const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, city, web, distance}) => {
+const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, city, web, distance, goToSingleLocation, longitude, latitude}) => {
   
     const classes = useStyles();
 
@@ -73,6 +74,7 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
         <a  style={{ color: '#39FF14'}} target="_blank" rel="noreferrer" href={web}>{web}</a> 
         <Typography className={classes.pos} color="inherit">
         <TransferWithinAStation style={{ color: '#39FF14' }} fontSize="small"/> {numeral(distance).format('0.00')} km
+        <ButtonGo longitude={longitude} latitude={latitude} handleClick={goToSingleLocation}/>
         </Typography>
         </CardContent>
       </Collapse>
