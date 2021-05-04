@@ -223,7 +223,7 @@ const pharmaciesClusters  = clusters.map(cluster => {
             onMouseOver={() =>  {setPharmacy(cluster)} } 
             onClick={e => {goToSingleLocation(e, latitude, longitude)}} 
           >
-              <img src='location48.png' alt='#' />
+              <img src='location45.png' alt='#' />
           </button>
       </Marker>)
 

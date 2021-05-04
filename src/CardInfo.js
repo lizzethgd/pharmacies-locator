@@ -71,7 +71,7 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
         <Typography className={classes.pos} color="inherit">
           {postalCode} {city}
         </Typography>
-        <a  style={{ color: '#39FF14'}} target="_blank" rel="noreferrer" href={web}>{web}</a> 
+        <a style={{ color: '#39FF14'}} target="_blank" rel="noreferrer" href={web}>{web}</a> 
         <Typography className={classes.pos} color="inherit">
         <TransferWithinAStation style={{ color: '#39FF14' }} fontSize="small"/> {numeral(distance).format('0.00')} km
         <ButtonGo longitude={longitude} latitude={latitude} handleClick={goToSingleLocation}/>

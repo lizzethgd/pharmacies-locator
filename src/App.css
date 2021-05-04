@@ -168,51 +168,43 @@ a:visited{
   cursor:pointer
 }
 
- .mapboxgl-popup-content {
-  cursor: default;
-  color: white;
-  background-color: rgb(104, 12, 190);
-}
-
 .popupStyle .mapboxgl-popup-content{ 
-  background-color: brown;
-}
-.popupStyle .mapboxgl-popup-tip{ 
-    border-top-color: green;
-}
-
-/* .mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{
-  border-top-color: rgb(66,111,175);
-}
-.mapboxgl-popup-anchor-top .mapboxgl-popup-tip{
-  border-bottom-color: rgb(66,111,175);
-}
-.mapboxgl-popup-anchor-left .mapboxgl-popup-tip{
-  border-right-color: rgb(66,111,175);
-}
-.mapboxgl-popup-anchor-right .mapboxgl-popup-tip{
-  border-left-color: rgb(66,111,175);
-}
-
-.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
-  border-bottom-color: rgb(66,111,175);
-}
-.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip{
-  border-bottom-color: rgb(66,111,175);
-}
-.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip{
-  border-top-color: rgb(66,111,175);
-}
-.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip{
-  border-top-color: rgb(66,111,175);
-} */
-
-
-/* .popupStyle{
+  background-color: #cd3c3c;
   cursor: default;
-  background-color: #54d30a;
   color: white;
-} */
+  font-size: 0.87rem;
+  text-size-adjust: auto;
+}
+
+.popupStyle.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip{
+  border-top-color:  #cd3c3c;
+}
+.popupStyle.mapboxgl-popup-anchor-top .mapboxgl-popup-tip{
+  border-bottom-color:  cd3c3c;
+}
+.popupStyle.mapboxgl-popup-anchor-left .mapboxgl-popup-tip{
+  border-right-color:  cd3c3c;
+}
+.popupStyle.mapboxgl-popup-anchor-right .mapboxgl-popup-tip{
+  border-left-color:  cd3c3c;
+}
+
+.popupStyle.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
+  border-bottom-color:  cd3c3c;
+}
+.popupStyle.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip{
+  border-bottom-color:  cd3c3c;
+}
+.popupStyle.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip{
+  border-top-color:  cd3c3c;
+}
+.popupStyle.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip{
+  border-top-color:  cd3c3c;
+} 
+
+.popupLink{
+  padding: 0.6rem 0 0.18rem;
+} 
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

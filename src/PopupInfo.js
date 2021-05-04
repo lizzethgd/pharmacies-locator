@@ -12,10 +12,7 @@ const PopupInfo = (props) => {
         <p>{pharmacy.phone}</p>
         <p>{pharmacy['addr:street']} {pharmacy['addr:housenumber']}</p>
         <p>{pharmacy['addr:postcode']} {pharmacy['addr:city']}</p>
-        <br/>
-        <h5>
-        <a target="_blank" rel="noreferrer" href={website}>{website}</a>
-        </h5>
+        <a target="_blank" rel="noreferrer" href={website} style={{ color: '#39FF14'}}><div className='popupLink'>{ website!=='undefined'  ? website : 'not available information'}</div></a>
     </div>
   );
 }
