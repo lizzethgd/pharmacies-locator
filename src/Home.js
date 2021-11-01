@@ -114,7 +114,7 @@ return handleViewportChange({
 },[handleViewportChange, kilometres]
 )
 
-const goToSingleLocation = (e, latitude, longitude) => {
+const goToSingleLocation = (e, latitude, longitude) => {
   e.preventDefault()
   setViewport({
     ...viewport,
@@ -140,8 +140,7 @@ const pharmacyPopup  = pharmacy
 
   const pharmaciesList= pharmacies.map((pharmacy, i)=> 
     ( 
-   /*  <Link to={`/ninja/${ninja._id}`} key={ninja._id}> */
-      <li key={i}>
+      <li key={i} >
         <CardInfo
          name={pharmacy.properties.name}
          openinHours={pharmacy.properties.opening_hours}
@@ -159,7 +158,6 @@ const pharmacyPopup  = pharmacy
 
         </CardInfo>
     </li>
-   /*  </Link>  */
     )
   )
 
@@ -255,8 +253,6 @@ const pharmaciesClusters  = clusters.map(cluster => {
             className={'mapClass'}
             >
               {pharmaciesClusters}
-               {/*pharmaciesMarkers*/}
-        {/*   <div className='map-controlls'> */}
             <NavigationControl style={navStyle} className='navControl'/>
             <Geocoder
             mapRef={mapRef}
@@ -276,7 +272,6 @@ const pharmaciesClusters  = clusters.map(cluster => {
             label={'Find a pharmacy with your location'}
             className={'geolocateClass'}
             />
-          {/* </div> */}
             {pharmacyPopup }
           </ReactMapGL>
         </div> 

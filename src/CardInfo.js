@@ -13,9 +13,6 @@ const useStyles = makeStyles((theme) => ({
   title: {
     fontSize: 15,
   },
-  pos: {
-    marginBottom: 5,
-  },
   expand: {
     transform: 'rotate(0deg)',
     marginLeft: 'auto',
@@ -40,7 +37,7 @@ const CardInfo = ({name, openinHours, phone, addres, houseNumero, postalCode, ci
     }; 
     
   return (
-    <Card className={classes.root} variant="outlined" style={{ backgroundColor: '#06235f', color:  '#fff', padding: '0px', marginBottom: '10px', borderRadius: '8px'}}>
+    <Card className={classes.root} variant="outlined" style={{ backgroundColor: '#06235f', color:  '#fff', padding: '0px', marginBottom: '0.5em', borderRadius: '8px'}}>
       <CardContent style={{  padding: '3px 0 0'}}>
       <Typography variant="h5" component="h2">
           {name} 

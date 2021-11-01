@@ -1,4 +1,4 @@
-*{
+**{
   margin: 0;
 }
 
@@ -25,12 +25,18 @@
 #form{
   display: flex;
   align-items: center;
-}  
+}
+
+
+.navControl{
+  top: 3.5em;
+  right: 0;
+ }
 
 .geolocateClass{
   left: 60vw;
-  top: -0.55em;
-} 
+  top: 0em;
+}
 
 .buttonDrop{
   padding-right: 3.7vw;
@@ -38,7 +44,7 @@
 
 .geocoderContainer{
   padding-right: 1.5vw;
-} 
+}
 
 .buttonDrop:hover::after{
   font-size: small;
@@ -62,28 +68,31 @@
   display: flex;
   justify-content: space-between;
   width: 100vw;
-  min-height: 96.6vh;
+  height: 96.6vh;
   z-index: 0;
 }
 
 .App-left {
   display: flex;
   justify-content: center;
-  padding: 0.7% 0 0.7% 0;
-}
-
-.App-right {
-  position: absolute;
-  right: 0;
-  margin-top: 51px;
-  overflow: auto;
-  padding: 0.7% 0.8% 0.05% 0; 
-  text-align: center; 
+  padding: 0.7em;
+  width: 75vw;
 }
 
 .mapClass{
-top: 8.25vh;
-border-radius: 5px;
+  border-radius: 7px;
+  margin-top: 8.3vh;
+  /* height: auto; */
+}
+
+.App-right {
+  /* right: 0; */
+  margin-top: 8.3vh;
+  overflow: auto;
+  width: 24vw;
+  padding: 0.7em 0.8em 0em 0.1em; 
+  height: 84.45vh;
+  text-align: center; 
 }
 
 .App-footer {
@@ -91,7 +100,7 @@ border-radius: 5px;
   position: absolute;
   bottom: 0px; 
   background-color: #098f2b;
-  width: 100%;
+  width: 100vw;
   min-height: 0.3%;
   align-items: center;
   justify-content: center;
@@ -114,10 +123,11 @@ img{
 #title{
   font-size: 28px;
   font-style: bold;
+  padding-left: 1vw;
 }
 
 li{
-  list-style:none
+  list-style:none;
 }
 
 .cluster-marker {
@@ -134,7 +144,6 @@ li{
 .App-link {
   color: #61dafb;
 }
-
 
 a:visited{
   color: rgb(240, 77, 132)
@@ -167,84 +176,166 @@ a:visited{
   border-top-color:  #cd3c3c;
 }
 .popupStyle.mapboxgl-popup-anchor-top .mapboxgl-popup-tip{
-  border-bottom-color:  #cd3c3c;
+  border-bottom-color:  cd3c3c;
 }
 .popupStyle.mapboxgl-popup-anchor-left .mapboxgl-popup-tip{
-  border-right-color:  #cd3c3c;
+  border-right-color:  cd3c3c;
 }
 .popupStyle.mapboxgl-popup-anchor-right .mapboxgl-popup-tip{
-  border-left-color:  #cd3c3c;
+  border-left-color:  cd3c3c;
 }
 
 .popupStyle.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
-  border-bottom-color:  #cd3c3c;
+  border-bottom-color:  cd3c3c;
 }
 .popupStyle.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip{
-  border-bottom-color:  #cd3c3c;
+  border-bottom-color:  cd3c3c;
 }
 .popupStyle.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip{
-  border-top-color:  #cd3c3c;
+  border-top-color:  cd3c3c;
 }
 .popupStyle.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip{
-  border-top-color:  #cd3c3c;
+  border-top-color:  cd3c3c;
 } 
 
 .popupLink{
   padding: 0.6rem 0 0.18rem;
 } 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (orientation: portrait) and (max-width: 600px) {
+   
+  .App-container {
+    flex-direction: column;
+    height: 98vh;
   }
-}
- 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media only screen and (max-width: 359px) {
-
-.geocoderContainer{
- right: 0vw;
-}
-
-.buttonDrop{
-  left: -0.1vw;
- }
-}
-
-@media only screen  and (orientation: landscape)  {
-
-.navControl{
-  top: 3em;
-  right: 0;
-}
-
-.App-left {
-  width: 75.5vw;
-  height: 94.6vh;
-}
   
-.App-right{
-  width: 24vw;
-  height: 85vh;  
-}
+  .App-header {
+    flex-direction: column;
+    padding: 1.5px 0px 8px;
+  }
+  
+  #form{
+    justify-content: flex-end;
+    padding-left: 12vw;
+  }
+  
+  .geolocateClass{
+    left: -2.65vw;
+    top: 1.1em;
+  }
+  
+  .buttonDrop{
+    padding-right: 2vw;
+   }
+  
+  .geocoderContainer{
+    padding-right: 2.5vw;
+  } 
 
-#title{
-  padding-left: 1vw;
-}
+  .App-left {
+   width: 92vw;
+   height: 46vh;
+   justify-content: center;
+   padding: 0.5em 1em;
+  }
 
-}
+  .mapClass{
+    margin-top: 6.7em;
+  } 
+  
+  .App-right {
+    width: 98%;
+    right: 3.5px;
+    height: 44vh;
+    top: 51.5%;
+    overflow: auto;
+    padding: 0;
+  }
+
+  .navControl{
+    top: 5em;
+    right: 21em
+   } 
+  
+  .App-footer {
+    top: 98vh;
+    font-size: 11px;
+  }
+  
+  #title{
+    padding: 0;
+    margin-bottom: 7px;
+    font-size: 20px;
+  }
+
+  
+  .mapboxgl-ctrl-geocoder{
+    height: 2em;
+    line-height: 1;
+  }
+  
+  .mapboxgl-ctrl-geocoder--input{
+    position: relative;
+    top: -6px;
+    max-width: 100%;
+    vertical-align: top;
+  }
+  
+  .mapboxgl-ctrl-geocoder--input::placeholder {
+   font-size: small;
+   color: black;
+  }
+  
+  .mapboxgl-ctrl-geocoder--input:focus {
+    font-size: small;
+    height: 2.5em;
+    top: 1.9px;
+    padding-left: 35px;
+  }
+  
+  .mapboxgl-ctrl-geocoder--input:not(:focus){ 
+    font-size: small;
+    padding-left: 35px;
+  }
+  
+  .mapboxgl-ctrl-geocoder .suggestions {
+    font-size: small;
+    padding-left: 35px;
+  }
+  
+  .mapboxgl-ctrl-geocoder--icon-search {
+    padding: 0 0 8px 0;
+  }
+  
+  .mapboxgl-ctrl-geocoder--icon-close {
+    padding: 0 0 8px 0;
+  }
+  
+  .mapbox-gl-geocoder--error{
+    color: darkslategrey;
+    padding: 5px 12px;
+    font-size: small;
+    text-align: center
+  }
+  
+  .mapboxgl-ctrl-geocoder--icon-loading {
+    width: 15px;
+    height: 15px;
+    top: -1px;
+    margin-right: -3px;
+    padding: 0 0 8px 0;
+  }
+  
+  .mapboxgl-ctrl-geocoder .suggestions > li > a {
+    padding: 3px 6px;
+    font-size: small;
+  }
+  
+}   
 
 @media only screen  and (orientation: landscape) and (max-width: 740px) {
 
-  .geolocateClass{
+/*   .geolocateClass{
     left: 38vw;
     top: -4px;
    }
@@ -263,193 +354,81 @@ a:visited{
 
   .App-footer {
     padding: 4px 0;
-  }
+  } */
 
 } 
 
 @media only screen and(min-width: 360px) and (max-width: 600px) {
 
-  .geocoderContainer{
+ /*  .geocoderContainer{
     right: 2vw;
     top: -4px
    }
 
    .buttonDrop{
-    left: -3.4vw;
-    min-width: 2vw;
-    padding: 0;
-   }
-}
-
-@media only screen and (max-width: 600px) {
-
-.App-container {
-  flex-direction: column;
-  align-items: center;
-  height: 98vh;
-}
-
-.App-header {
-  flex-direction: column;
-  padding: 1.5px 0px 5px;
-}
-
-#form{
-  justify-content: flex-end;
-  padding-left: 12vw;
-}
-
-.geolocateClass{
-  left: -2vw;
-  top: 1.37em;
-}
- 
-.geocoderContainer{
-   top: -4px;
-   left: -3vw;
-}
- 
-.buttonDrop{
-}
-
-.App-left {
- width: 100%;
- height: 46vh;
- padding: 3px;
-}
-
-.App-right {
-  width: 98%;
-  right: 3.5px;
-  height: 47.2vh;
-  top: 44.5%;
-  overflow: auto;
-  padding: 0 0.01% 0;
-}
-
-.App-footer {
-  top: 98vh;
-  font-size: 11px;
-}
-
-#title{
-  padding: 0;
-  margin-bottom: 7px;
-  font-size: 20px;
-}
-
-.mapClass{
   
-} 
-
- .navControl{
-  top: 4.5em;
- }
-
- .mapboxgl-ctrl-geocoder{
-  height: 2em;
-  line-height: 1;
+   } */
 }
 
-.mapboxgl-ctrl-geocoder--input{
-  position: relative;
-  top: -6px;
-  max-width: 100%;
-  vertical-align: top;
-}
-
-.mapboxgl-ctrl-geocoder--input::placeholder {
- font-size: small;
- color: black;
-}
-
-.mapboxgl-ctrl-geocoder--input:focus {
-  font-size: small;
-  height: 2.5em;
-  top: 1.9px;
-  padding-left: 35px;
-}
-
-.mapboxgl-ctrl-geocoder--input:not(:focus){ 
-  font-size: small;
-  padding-left: 35px;
-}
-
-.mapboxgl-ctrl-geocoder .suggestions {
-  font-size: small;
-  padding-left: 35px;
-}
-
-.mapboxgl-ctrl-geocoder--icon-search {
-  padding: 0 0 8px 0;
-}
-
-.mapboxgl-ctrl-geocoder--icon-close {
-  padding: 0 0 8px 0;
-}
-
-.mapbox-gl-geocoder--error{
-  color: darkslategrey;
-  padding: 5px 12px;
-  font-size: small;
-  text-align: center
-}
-
-.mapboxgl-ctrl-geocoder--icon-loading {
-  width: 15px;
-  height: 15px;
-  top: -1px;
-  margin-right: -3px;
-  padding: 0 0 8px 0;
-}
-
-.mapboxgl-ctrl-geocoder .suggestions > li > a {
-  padding: 3px 6px;
-  font-size: small;
-}
-  
-} 
 
 @media only screen and (min-width: 601px) and (max-width: 1200px){
 /*big tablets and laptops*/ 
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1400px) {
-  .App-right {
+ /*  .App-right {
     padding-right: 0.6%; 
-  }
+  } */
 }
 
 @media only screen and (min-width: 1400px) {
 
-  .navControl{
-    top: 4.5em
-  }
-
   .geolocateClass{
-    top: 0.3em;
+    top: 0.1em;
   }
 
   .App-header {
     padding: 1.24em 0;
   }
 
+  .App-footer {
+    padding: 1.38em 0;
+  }
+  
   .App-left {
     width: 76.6vw;
-    height: 94vh;
-    padding-top: 0.4%;
-    padding-left: 0.4%;  
+    height: 97vh;
   }
  
   .App-right {
-    width: 22.5vw;
-    top: 1.2em;
-    height: 86vh;
-    padding-right: 0.9%;
+    width: 24vw;
   }
 
-  .App-footer {
-    padding: 0.85em 0;
+}
+
+@media only screen and (max-width: 359px) {
+
+  .geocoderContainer{
+   right: 0vw;
+  }
+  
+  .buttonDrop{
+    left: -0.1vw;
+   }
   }
 
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+ 
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

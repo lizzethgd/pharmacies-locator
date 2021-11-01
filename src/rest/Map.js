@@ -3,17 +3,6 @@ import "react-map-gl-geocoder/dist/mapbox-gl-geocoder.css"
 import Geocoder from 'react-map-gl-geocoder'
 import ReactMapGL, {  NavigationControl, GeolocateControl, FullscreenControl } from "react-map-gl";
 
-const geolocateStyle = {
-    top: 0,
-    right: 0,
-    padding: '10px'
-};
-
-const navStyle = {
-    top: 72,
-    right: 0,
-    padding: '10px'
-};
 
 const fullscreenControlStyle = {
     top: 210,
@@ -37,7 +26,7 @@ return (
         mapboxApiAccessToken={token}  
     >
     {markers}
-    <NavigationControl style={navStyle} />
+    <NavigationControl />
     <Geocoder
         mapRef={mapRef}
         containerRef={geocoderContainerRef}
@@ -49,7 +38,6 @@ return (
     />
     <FullscreenControl style={fullscreenControlStyle} />
     <GeolocateControl
-        style={geolocateStyle}
         onGeolocate={handleResult}
         positionOptions={{enableHighAccuracy: true}}
     />
